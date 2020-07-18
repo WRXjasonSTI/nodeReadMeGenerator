@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/WRXjasonSTI/nodeReadMeGenerator/issues"
   },
-  "homepage": "https://github.com/WRXjasonSTI/nodeReadMeGenerator#readme"
+  "homepage": "https://github.com/WRXjasonSTI/nodeReadMeGenerator#readme",
+  "dependencies": {
+    "inquirer": "^7.3.2"
+  }
 }

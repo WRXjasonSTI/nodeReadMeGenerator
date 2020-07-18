@@ -1,34 +1,34 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require("util");
-
 const writeFileAsync = util.promisify(fs.writeFile);
 
-function promptUser() {
+//CLI Questions stored here in Inquirer NPM format
+function infoGather() {
   return inquirer.prompt([
     {
       type: "input",
-      name: "name",
+      name: "project",
       message: "What is the name of your project?"
     },
     {
       type: "input",
-      name: "location",
+      name: "description",
       message: "What is a brief description of your project?"
     },
+    // {
+    //   type: "input",
+    //   name: "contents",
+    //   message: "Enter a table of contents."
+    // },
     {
       type: "input",
-      name: "hobby",
-      message: "Enter a CSV table of contents."
-    },
-    {
-      type: "input",
-      name: "food",
+      name: "installation",
       message: "What are the installation steps of your project?"
     },
     {
       type: "input",
-      name: "github",
+      name: "usage",
       message: "Enter Usage information for your project."
     },
     {
@@ -36,52 +36,96 @@ function promptUser() {
       message: "Which license would you like to use for your project?",
       name: "license",
       choices: [
+        "Apache License 2.0",
+        "GNU General Public License v3.0",
         "MIT License",
-        "Code Project Open License (CPOL)",
-        "Common Development and Distribution License (CDDL)",
-        "Microsoft Public License (Ms-PL)",
-        "Mozilla Public License 1.1 (MPL 1.1)",
-        "Common Public License Version 1.0 (CPL)",
-        "Eclipse Public License 1.0",
-        "Apache License, Version 2.0"    }
-  ]);
-}
+        "BSD 2-Clause License",
+        "BSD 3-Clause License",
+        "Boosy Software License 1.0",
+        "Creative Commons Zero v1.0 Universal",
+        "Eclipse Public License 2.0",
+        "GNU Affero General Public License v3.0",
+        "GNU Affero Public License v2.0",
+        "GNU Lesser General Public License v2.1",
+        "Mozilla Public License 2.0",
+        "The Unilicense"
+     ]
+    },
+    {
+      type: "input",
+      name: "contributing",
+      message: "Enter contribution information for your project."
+    },
+    {
+      type: "input",
+      name: "testing",
+      message: "Enter testing information for your project."  
+    },
+    {
+      type: "input",
+      name: "github",
+      message: "Enter your Github username."  
+    },
+    {
+      type: "input",
+      name: "email",
+      message: "Enter your email address."  
+    },
+  ])
+};
 
-function generateHTML(answers) {
+//Converting User answers to final format before document creation
+function creatMDFile(answers) {
   return `
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <title>Document</title>
-</head>
-<body>
-  <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Hi! My name is ${answers.name}</h1>
-    <p class="lead">I am from ${answers.location}.</p>
-    <h3>Example heading <span class="badge badge-secondary">Contact Me</span></h3>
-    <ul class="list-group">
-      <li class="list-group-item">My GitHub username is ${answers.github}</li>
-      <li class="list-group-item">LinkedIn: ${answers.linkedin}</li>
-    </ul>
-  </div>
-</div>
-</body>
-</html>`;
+# ${answers.project}
+
+${answers.description}  
+
+## License
+
+${answers.license} 
+
+## Table of Contents
+
+* Installation  
+* Usage  
+* License  
+* Contributing  
+* Tests  
+* Questions and Contact  
+
+## Installation
+
+${answers.installation} 
+
+## Usage
+
+${answers.usage} 
+
+## Contributing
+
+${answers.contributing} 
+
+## Tests
+
+${answers.testing} 
+
+## Questions and Contact
+For any questions and suggestions, please feel free to contact me at the following platforms:
+* ${answers.github} 
+* ${answers.email} 
+    `;
 }
 
-promptUser()
+//Function Call with promise/document creation via util
+infoGather()
   .then(function(answers) {
-    const html = generateHTML(answers);
-
-    return writeFileAsync("index.html", html);
+    const readMeGen = creatMDFile(answers);
+    return writeFileAsync(`${answers.project}.md`, readMeGen);
   })
   .then(function() {
-    console.log("Successfully wrote to index.html");
+    console.log("Your README.md has been generated");
   })
-  .catch(function(err) {
-    console.log(err);
+  .catch(function(error) {
+    console.log(error);
   });
