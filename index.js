@@ -82,7 +82,7 @@ function creatMDFile(answers) {
 ${answers.description}  
 
 ## License
-![GitHub](https://img.shields.io/github/license/${answers.github}/${answers.project})
+![GitHub](https://img.shields.io/github/license/${answers.github}/${answers.project})  
 ${answers.license} 
 
 ## Table of Contents
@@ -95,13 +95,13 @@ ${answers.license}
 * Questions and Contact  
 
 ## Installation
-
+\`\`\`bash
 ${answers.installation} 
-
+\`\`\`
 ## Usage
-
+\`\`\`bash
 ${answers.usage} 
-
+\`\`\`
 ## Contributing
 
 ${answers.contributing} 

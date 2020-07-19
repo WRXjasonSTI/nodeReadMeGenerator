@@ -1,10 +1,16 @@
+# ReadMe.MD Generator with Node JS
 
-# README
+Thank you for viewing my repository. The following repository is for an application run on the Terminal that will generate a Readme file for future projects and repositories. User input will be able to generate a professional-looking "welcome page," or at least a starter template to greet repository visitors. 
 
-Placeholder Description  
+### Screenshots
+
+The user interaction will be as follows:  
+![Start Block](images/cli.PNG)  
+And the finished product:  
+![Main Body](images/main.PNG)  
 
 ## License
-![GitHub](https://img.shields.io/github/license/WRXjasonSTI/README)
+![GitHub](https://img.shields.io/github/license/WRXjasonSTI/nodeReadMeGenerator)
 MIT License 
 
 ## Table of Contents
@@ -18,15 +24,18 @@ MIT License
 
 ## Installation
 
-NPM I 
+```bash
+npm i
+```
 
 ## Usage
-
-Usage Info Placeholder 
+```bash
+node index.js
+```
 
 ## Contributing
 
-Contribution Info Placeholder 
+Am open to all contributions. Please email me for a pull request. 
 
 ## Tests
 
