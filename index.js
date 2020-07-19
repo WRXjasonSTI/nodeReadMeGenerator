@@ -82,7 +82,7 @@ function creatMDFile(answers) {
 ${answers.description}  
 
 ## License
-
+![GitHub](https://img.shields.io/github/license/${answers.github}/${answers.project})
 ${answers.license} 
 
 ## Table of Contents
@@ -112,8 +112,12 @@ ${answers.testing}
 
 ## Questions and Contact
 For any questions and suggestions, please feel free to contact me at the following platforms:
-* ${answers.github} 
-* ${answers.email} 
+* GitHub: ${answers.github} 
+* Email: ${answers.email} 
+
+##
+${answers.license} 
+Copyright ${answers.github}
     `;
 }
 
@@ -124,7 +128,7 @@ infoGather()
     return writeFileAsync(`${answers.project}.md`, readMeGen);
   })
   .then(function() {
-    console.log("Your README.md has been generated");
+    console.log("Your Markdown file has been generated. Please review and rename. Thank you!");
   })
   .catch(function(error) {
     console.log(error);
