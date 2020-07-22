@@ -87,12 +87,12 @@ ${answers.license}
 
 ## Table of Contents
 
-* Installation  
-* Usage  
-* License  
-* Contributing  
-* Tests  
-* Questions and Contact  
+* [Installation](#Installation)  
+* [Usage](#Usage)  
+* [License](#License)  
+* [Contributing](#Contributing)  
+* [Tests](#Contributing)  
+* [Questions and Contact](#Questions and Contact)  
 
 ## Installation
 \`\`\`bash
