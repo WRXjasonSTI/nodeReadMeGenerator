@@ -92,7 +92,7 @@ ${answers.license}
 * [License](#License)  
 * [Contributing](#Contributing)  
 * [Tests](#Contributing)  
-* [Questions and Contact](#Questions and Contact)  
+* [Contact](#Contact)  
 
 ## Installation
 \`\`\`bash
@@ -110,7 +110,7 @@ ${answers.contributing}
 
 ${answers.testing} 
 
-## Questions and Contact
+## Contact
 For any questions and suggestions, please feel free to contact me at the following platforms:
 * GitHub: ${answers.github} 
 * Email: ${answers.email} 

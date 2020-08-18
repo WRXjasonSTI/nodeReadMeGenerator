@@ -15,12 +15,12 @@ MIT License
 
 ## Table of Contents
 
-* Installation  
-* Usage  
-* License  
-* Contributing  
-* Tests  
-* Questions and Contact  
+* [Installation](#Installation)  
+* [Usage](#Usage)  
+* [License](#License)  
+* [Contributing](#Contributing)  
+* [Tests](#Contributing)  
+* [Contact](#Contact)  
 
 ## Installation
 
